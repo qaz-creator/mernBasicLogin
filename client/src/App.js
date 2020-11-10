@@ -13,7 +13,7 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:2000/api').then((res) => {
+    axios.get('http://localhost:5000/api').then((res) => {
       this.setState({
         users: res.data,
         id: 0,
@@ -46,7 +46,7 @@ class App extends React.Component {
     e.preventDefault()
     if (id === 0) {
       axios
-        .post('http://localhost:2000/api', {
+        .post('http://localhost:5000/api', {
           name: this.state.name,
           email: this.state.email,
           password: this.state.password,
@@ -56,7 +56,7 @@ class App extends React.Component {
         })
     } else {
       axios
-        .put(`http://localhost:2000/api/${id}`, {
+        .put(`http://localhost:5000/api/${id}`, {
           name: this.state.name,
           email: this.state.email,
           password: this.state.password,
@@ -68,13 +68,13 @@ class App extends React.Component {
   }
 
   delete(id) {
-    axios.delete(`http://localhost:2000/api/${id}`).then(() => {
+    axios.delete(`http://localhost:5000/api/${id}`).then(() => {
       this.componentDidMount()
     })
   }
 
   edit(id) {
-    axios.get(`http://localhost:2000/api/${id}`).then((res) => {
+    axios.get(`http://localhost:5000/api/${id}`).then((res) => {
       this.setState({
         id: res.data._id,
         name: res.data.name,
