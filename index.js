@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 5000
 const cors = require('cors')
 const mongoose = require('mongoose')
 const { MONGOURI } = require('./config/keys')
+const path = require('path')
 
 app.use(express.json())
 app.use(cors())
